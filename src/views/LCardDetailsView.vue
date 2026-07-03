@@ -12,7 +12,14 @@
         No card details found. Please search by id card number first.
       </p>
 
-      <div v-else class="overflow-x-auto">
+      <div v-else>
+        <p class="rounded-lg bg-emerald-50 px-8 py-10 text-center text-[50px] font-extrabold leading-tight text-emerald-700">
+          You have scan a card successfully, Card no is
+          <span class="text-brand-600">{{ cardNumber }}</span>
+        </p>
+      </div>
+
+      <div v-if="false" class="overflow-x-auto">
         <table class="w-full min-w-[900px] border-collapse text-left">
           <thead>
             <tr class="bg-slate-100 text-base font-extrabold text-ink">
@@ -43,6 +50,8 @@ import { cardLookupStore } from '../services/cardLookupStore'
 const employee = ref(cardLookupStore.get())
 
 const hiddenKeys = new Set(['password'])
+
+const cardNumber = computed(() => employee.value?.id_card_no || '-')
 
 const details = computed(() => {
   if (!employee.value) return []
