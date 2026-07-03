@@ -11,7 +11,9 @@ import ICardView from '../views/ICardView.vue'
 import LCardDetailsView from '../views/LCardDetailsView.vue'
 
 const routes = [
-  { path: '/', redirect: '/dashboard' },
+  // Temporary landing page. Restore this after the public i-card period:
+  // { path: '/', redirect: '/dashboard' },
+  { path: '/', redirect: '/icard' },
   { path: '/login', name: 'login', component: LoginView, meta: { public: true } },
   { path: '/register', name: 'register', component: RegisterView, meta: { public: true } },
   { path: '/icard', name: 'icard', component: ICardView, meta: { public: true, allowAuthenticated: true } },
